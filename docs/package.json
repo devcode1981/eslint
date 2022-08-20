@@ -30,7 +30,7 @@
         "eleventy-plugin-reading-time": "^0.0.1",
         "imagemin": "^8.0.1",
         "imagemin-cli": "^7.0.0",
-        "luxon": "^2.4.0",
+        "luxon": "^3.0.1",
         "markdown-it": "^12.2.0",
         "markdown-it-anchor": "^8.1.2",
         "netlify-cli": "^10.3.1",
