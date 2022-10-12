@@ -1,11 +1,9 @@
 ---
 title: no-negated-in-lhs
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-negated-in-lhs.md
 rule_type: problem
 ---
 
-Disallows negating the left operand in `in` expressions.
 
 This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-unsafe-negation](no-unsafe-negation) rule.
 
@@ -17,6 +15,8 @@ This rule disallows negating the left operand in `in` expressions.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-negated-in-lhs: "error"*/
 
@@ -26,7 +26,11 @@ if(!key in object) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-negated-in-lhs: "error"*/
@@ -40,6 +44,8 @@ if(('' + !key) in object) {
     // in a rare situation when that is the intended meaning
 }
 ```
+
+:::
 
 ## When Not To Use It
 

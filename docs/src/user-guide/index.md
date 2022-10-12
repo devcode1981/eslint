@@ -1,7 +1,6 @@
 ---
 title: User Guide
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/index.md
 eleventyNavigation:
     key: user guide
     title: User Guide
@@ -45,3 +44,4 @@ If you were using a prior version of ESLint, you can get help with the transitio
 * [migrating-to-5.0.0](migrating-to-5.0.0)
 * [migrating-to-6.0.0](migrating-to-6.0.0)
 * [migrating-to-7.0.0](migrating-to-7.0.0)
+* [migrating-to-8.0.0](migrating-to-8.0.0)

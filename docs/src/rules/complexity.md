@@ -1,7 +1,6 @@
 ---
 title: complexity
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/complexity.md
 rule_type: suggestion
 related_rules:
 - max-depth
@@ -19,7 +18,6 @@ further_reading:
 - https://github.com/eslint/eslint/issues/4808#issuecomment-167795140
 ---
 
-Enforces a maximum cyclomatic complexity.
 
 Cyclomatic complexity measures the number of linearly independent paths through a program's source code. This rule allows setting a cyclomatic complexity threshold.
 
@@ -41,6 +39,8 @@ This rule is aimed at reducing code complexity by capping the amount of cyclomat
 
 Examples of **incorrect** code for a maximum of 2:
 
+::: incorrect
+
 ```js
 /*eslint complexity: ["error", 2]*/
 
@@ -60,7 +60,11 @@ function b() {
 }
 ```
 
+:::
+
 Examples of **correct** code for a maximum of 2:
+
+::: correct
 
 ```js
 /*eslint complexity: ["error", 2]*/
@@ -78,9 +82,13 @@ function b() {
 }
 ```
 
+:::
+
 Class field initializers and class static blocks are implicit functions. Therefore, their complexity is calculated separately for each initializer and each static block, and it doesn't contribute to the complexity of the enclosing code.
 
 Examples of additional **incorrect** code for a maximum of 2:
+
+::: incorrect
 
 ```js
 /*eslint complexity: ["error", 2]*/
@@ -98,7 +106,11 @@ class D { // this static block has complexity = 3
 }
 ```
 
+:::
+
 Examples of additional **correct** code for a maximum of 2:
+
+::: correct
 
 ```js
 /*eslint complexity: ["error", 2]*/
@@ -124,6 +136,8 @@ function foo() { // this function has complexity = 1
     }
 }
 ```
+
+:::
 
 ## Options
 

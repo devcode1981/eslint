@@ -1,13 +1,10 @@
 ---
 title: no-lonely-if
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-lonely-if.md
 rule_type: suggestion
 ---
 
-<!--FIXABLE-->
 
-Disallows `if` statements as the only statement in `else` blocks.
 
 If an `if` statement is the only statement in the `else` block, it is often clearer to use an `else if` form.
 
@@ -37,6 +34,8 @@ This rule disallows `if` statements as the only statement in `else` blocks.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-lonely-if: "error"*/
 
@@ -59,7 +58,11 @@ if (condition) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-lonely-if: "error"*/
@@ -87,6 +90,8 @@ if (condition) {
     doSomething();
 }
 ```
+
+:::
 
 ## When Not To Use It
 

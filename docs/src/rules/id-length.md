@@ -1,7 +1,6 @@
 ---
 title: id-length
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/id-length.md
 rule_type: suggestion
 related_rules:
 - max-len
@@ -10,7 +9,6 @@ related_rules:
 - camelcase
 ---
 
-Enforces minimum and maximum identifier lengths.
 
 Very short identifier names like `e`, `x`, `_t` or very long ones like `hashGeneratorResultOutputContainerObject` can make code harder to read and potentially less maintainable. To prevent this, one may enforce a minimum and/or maximum identifier length.
 
@@ -22,9 +20,13 @@ var x = 5; // too short; difficult to understand its purpose without context
 
 This rule enforces a minimum and/or maximum identifier length convention.
 
+This rule counts [graphemes](https://unicode.org/reports/tr29/#Default_Grapheme_Cluster_Table) instead of using [`String length`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length).
+
 ## Options
 
 Examples of **incorrect** code for this rule with the default options:
+
+::: incorrect
 
 ```js
 /*eslint id-length: "error"*/     // default is minimum 2-chars ({ "min": 2 })
@@ -55,7 +57,11 @@ var { prop: a} = {};
 ({ prop: obj.x } = {});
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default options:
+
+::: correct
 
 ```js
 /*eslint id-length: "error"*/     // default is minimum 2-chars ({ "min": 2 })
@@ -93,6 +99,8 @@ var data = { "x": 1 };  // excused because of quotes
 data["y"] = 3;  // excused because of calculated property access
 ```
 
+:::
+
 This rule has an object option:
 
 * `"min"` (default: 2) enforces a minimum identifier length
@@ -105,6 +113,8 @@ This rule has an object option:
 ### min
 
 Examples of **incorrect** code for this rule with the `{ "min": 4 }` option:
+
+::: incorrect
 
 ```js
 /*eslint id-length: ["error", { "min": 4 }]*/
@@ -130,7 +140,11 @@ var { prop: [x]} = {};
 ({ prop: obj.x } = {});
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "min": 4 }` option:
+
+::: correct
 
 ```js
 /*eslint id-length: ["error", { "min": 4 }]*/
@@ -160,9 +174,13 @@ var data = { "x": 1 };  // excused because of quotes
 data["y"] = 3;  // excused because of calculated property access
 ```
 
+:::
+
 ### max
 
 Examples of **incorrect** code for this rule with the `{ "max": 10 }` option:
+
+::: incorrect
 
 ```js
 /*eslint id-length: ["error", { "max": 10 }]*/
@@ -181,7 +199,11 @@ try {
 var [reallyLongFirstElementName] = arr;
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "max": 10 }` option:
+
+::: correct
 
 ```js
 /*eslint id-length: ["error", { "max": 10 }]*/
@@ -200,9 +222,13 @@ try {
 var [first] = arr;
 ```
 
+:::
+
 ### properties
 
 Examples of **correct** code for this rule with the `{ "properties": "never" }` option:
+
+::: correct
 
 ```js
 /*eslint id-length: ["error", { "properties": "never" }]*/
@@ -213,9 +239,13 @@ var myObj = { a: 1 };
 ({ prop: obj.i } = {});
 ```
 
+:::
+
 ### exceptions
 
 Examples of additional **correct** code for this rule with the `{ "exceptions": ["x"] }` option:
+
+::: correct
 
 ```js
 /*eslint id-length: ["error", { "exceptions": ["x"] }]*/
@@ -236,9 +266,13 @@ const { x } = foo;
 const { a: x } = foo;
 ```
 
+:::
+
 ### exceptionPatterns
 
 Examples of additional **correct** code for this rule with the `{ "exceptionPatterns": ["E|S", "[x-z]"] }` option:
+
+::: correct
 
 ```js
 /*eslint id-length: ["error", { "exceptionPatterns": ["E|S", "[x-z]"] }]*/
@@ -258,3 +292,5 @@ var [E] = arr;
 const { y } = foo;
 const { a: z } = foo;
 ```
+
+:::

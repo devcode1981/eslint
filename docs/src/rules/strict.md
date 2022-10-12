@@ -1,13 +1,10 @@
 ---
 title: strict
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/strict.md
 rule_type: suggestion
 ---
 
-<!--FIXABLE-->
 
-Requires or disallow strict mode directives.
 
 A strict mode directive is a `"use strict"` literal at the beginning of a script or function body. It enables strict mode semantics.
 
@@ -86,12 +83,18 @@ Otherwise the `"safe"` option corresponds to the `"function"` option. Note that 
 
 Examples of **incorrect** code for this rule with the `"global"` option:
 
+::: incorrect
+
 ```js
 /*eslint strict: ["error", "global"]*/
 
 function foo() {
 }
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint strict: ["error", "global"]*/
@@ -100,6 +103,10 @@ function foo() {
     "use strict";
 }
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint strict: ["error", "global"]*/
@@ -110,9 +117,13 @@ function foo() {
     "use strict";
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `"global"` option:
 
+::: correct
+
 ```js
 /*eslint strict: ["error", "global"]*/
 
@@ -121,12 +132,16 @@ Examples of **correct** code for this rule with the `"global"` option:
 function foo() {
 }
 ```
+
+:::
 
 ### function
 
 This option ensures that all function bodies are strict mode code, while global code is not. Particularly if a build step concatenates multiple scripts, a strict mode directive in global code of one script could unintentionally enable strict mode in another script that was not intended to be strict code.
 
 Examples of **incorrect** code for this rule with the `"function"` option:
+
+::: incorrect
 
 ```js
 /*eslint strict: ["error", "function"]*/
@@ -136,6 +151,10 @@ Examples of **incorrect** code for this rule with the `"function"` option:
 function foo() {
 }
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint strict: ["error", "function"]*/
@@ -149,6 +168,10 @@ function foo() {
     }
 }());
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint strict: ["error", "function"]*/
@@ -166,7 +189,11 @@ function foo(a = 1) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"function"` option:
+
+::: correct
 
 ```js
 /*eslint strict: ["error", "function"]*/
@@ -193,9 +220,13 @@ var foo = (function() {
 }());
 ```
 
+:::
+
 ### never
 
 Examples of **incorrect** code for this rule with the `"never"` option:
+
+::: incorrect
 
 ```js
 /*eslint strict: ["error", "never"]*/
@@ -206,6 +237,10 @@ function foo() {
 }
 ```
 
+:::
+
+::: incorrect
+
 ```js
 /*eslint strict: ["error", "never"]*/
 
@@ -214,7 +249,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never"` option:
+
+::: correct
 
 ```js
 /*eslint strict: ["error", "never"]*/
@@ -222,6 +261,8 @@ Examples of **correct** code for this rule with the `"never"` option:
 function foo() {
 }
 ```
+
+:::
 
 ### earlier default (removed)
 
@@ -231,12 +272,18 @@ This option ensures that all functions are executed in strict mode. A strict mod
 
 Examples of **incorrect** code for this rule with the earlier default option which has been removed:
 
+::: incorrect
+
 ```js
 // "strict": "error"
 
 function foo() {
 }
 ```
+
+:::
+
+::: incorrect
 
 ```js
 // "strict": "error"
@@ -248,7 +295,11 @@ function foo() {
 }());
 ```
 
+:::
+
 Examples of **correct** code for this rule with the earlier default option which has been removed:
+
+::: correct
 
 ```js
 // "strict": "error"
@@ -259,6 +310,10 @@ function foo() {
 }
 ```
 
+:::
+
+::: correct
+
 ```js
 // "strict": "error"
 
@@ -266,6 +321,10 @@ function foo() {
     "use strict";
 }
 ```
+
+:::
+
+::: correct
 
 ```js
 // "strict": "error"
@@ -277,6 +336,8 @@ function foo() {
     }
 }());
 ```
+
+:::
 
 ## When Not To Use It
 

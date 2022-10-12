@@ -1,15 +1,12 @@
 ---
 title: prefer-arrow-callback
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-arrow-callback.md
 rule_type: suggestion
 further_reading:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 ---
 
-<!--FIXABLE-->
 
-Requires using arrow functions for callbacks.
 
 Arrow functions can be an attractive alternative to function expressions for callbacks or function arguments.
 

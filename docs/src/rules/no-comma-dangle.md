@@ -1,7 +1,6 @@
 ---
 title: no-comma-dangle
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-comma-dangle.md
 
 ---
 
@@ -24,6 +23,8 @@ This rule is aimed at detecting trailing commas in object literals. As such, it 
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 var foo = {
     bar: "baz",
@@ -38,7 +39,11 @@ foo({
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 var foo = {
@@ -53,6 +58,8 @@ foo({
   qux: "quux"
 });
 ```
+
+:::
 
 ## When Not To Use It
 

@@ -1,15 +1,12 @@
 ---
 title: newline-before-return
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/newline-before-return.md
 rule_type: layout
 related_rules:
 - newline-after-var
 ---
 
-<!--FIXABLE-->
 
-Requires an empty line before `return` statements.
 
 This rule was **deprecated** in ESLint v4.0.0 and replaced by the [padding-line-between-statements](padding-line-between-statements) rule.
 
@@ -48,6 +45,8 @@ This rule requires an empty line before `return` statements to increase code cla
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint newline-before-return: "error"*/
 
@@ -68,7 +67,11 @@ function foo(bar) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint newline-before-return: "error"*/
@@ -117,6 +120,8 @@ function foo() {
     return;
 }
 ```
+
+:::
 
 ## When Not To Use It
 

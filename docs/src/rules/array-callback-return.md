@@ -1,11 +1,9 @@
 ---
 title: array-callback-return
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/array-callback-return.md
 rule_type: problem
 ---
 
-Enforces return statements in callbacks of array's methods.
 
 `Array` has several methods for filtering, mapping, and folding.
 If we forget to write `return` statement in a callback of those, it's probably a mistake. If you don't want to use a return or don't need the returned results, consider using [.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) instead.
@@ -29,6 +27,8 @@ This rule finds callback functions of the following methods, then checks usage o
 * [`Array.prototype.filter`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.filter)
 * [`Array.prototype.find`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.find)
 * [`Array.prototype.findIndex`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.findindex)
+* [`Array.prototype.findLast`](https://tc39.es/ecma262/#sec-array.prototype.findlast)
+* [`Array.prototype.findLastIndex`](https://tc39.es/ecma262/#sec-array.prototype.findlastindex)
 * [`Array.prototype.flatMap`](https://www.ecma-international.org/ecma-262/10.0/#sec-array.prototype.flatmap)
 * [`Array.prototype.forEach`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.foreach) (optional, based on `checkForEach` parameter)
 * [`Array.prototype.map`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.map)
@@ -39,6 +39,8 @@ This rule finds callback functions of the following methods, then checks usage o
 * And above of typed arrays.
 
 Examples of **incorrect** code for this rule:
+
+:::incorrect
 
 ```js
 /*eslint array-callback-return: "error"*/
@@ -62,7 +64,11 @@ var bar = foo.filter(function(x) {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+:::correct
 
 ```js
 /*eslint array-callback-return: "error"*/
@@ -82,6 +88,8 @@ var foo = Array.from(nodes, function(node) {
 var bar = foo.map(node => node.getAttribute("id"));
 ```
 
+:::
+
 ## Options
 
 This rule accepts a configuration object with two options:
@@ -93,6 +101,8 @@ This rule accepts a configuration object with two options:
 
 Examples of **correct** code for the `{ "allowImplicit": true }` option:
 
+:::correct
+
 ```js
 /*eslint array-callback-return: ["error", { allowImplicit: true }]*/
 var undefAllTheThings = myArray.map(function(item) {
@@ -100,9 +110,13 @@ var undefAllTheThings = myArray.map(function(item) {
 });
 ```
 
+:::
+
 ### checkForEach
 
 Examples of **incorrect** code for the `{ "checkForEach": true }` option:
+
+:::incorrect
 
 ```js
 /*eslint array-callback-return: ["error", { checkForEach: true }]*/
@@ -125,7 +139,11 @@ myArray.forEach(item => {
 });
 ```
 
+:::
+
 Examples of **correct** code for the `{ "checkForEach": true }` option:
+
+:::correct
 
 ```js
 /*eslint array-callback-return: ["error", { checkForEach: true }]*/
@@ -150,6 +168,8 @@ myArray.forEach(item => {
     handleItem(item);
 });
 ```
+
+:::
 
 ## Known Limitations
 

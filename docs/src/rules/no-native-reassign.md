@@ -1,7 +1,6 @@
 ---
 title: no-native-reassign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-native-reassign.md
 rule_type: suggestion
 related_rules:
 - no-extend-native
@@ -9,7 +8,6 @@ related_rules:
 - no-shadow
 ---
 
-Disallows reassignment of native objects.
 
 This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-global-assign](no-global-assign) rule.
 
@@ -32,12 +30,18 @@ ESLint has the capability to configure global variables as read-only.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-native-reassign: "error"*/
 
 Object = null
 undefined = 1
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint no-native-reassign: "error"*/
@@ -48,6 +52,10 @@ length = 1
 top = 1
 ```
 
+:::
+
+::: incorrect
+
 ```js
 /*eslint no-native-reassign: "error"*/
 /*global a:readonly*/
@@ -55,7 +63,11 @@ top = 1
 a = 1
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-native-reassign: "error"*/
@@ -65,6 +77,10 @@ var b = 1
 b = 2
 ```
 
+:::
+
+::: correct
+
 ```js
 /*eslint no-native-reassign: "error"*/
 /*eslint-env browser*/
@@ -72,12 +88,18 @@ b = 2
 onload = function() {}
 ```
 
+:::
+
+::: correct
+
 ```js
 /*eslint no-native-reassign: "error"*/
 /*global a:writable*/
 
 a = 1
 ```
+
+:::
 
 ## Options
 

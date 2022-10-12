@@ -1,15 +1,12 @@
 ---
 title: implicit-arrow-linebreak
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/implicit-arrow-linebreak.md
 rule_type: layout
 related_rules:
 - brace-style
 ---
 
-<!--FIXABLE-->
 
-Enforces the location of arrow function bodies with implicit returns.
 
 An arrow function body can contain an implicit return as an expression instead of a block body. It can be useful to enforce a consistent location for the implicitly returned expression.
 
@@ -25,6 +22,8 @@ This rule accepts a string option:
 * `"below"` requires a newline before an arrow function body.
 
 Examples of **incorrect** code for this rule with the default `"beside"` option:
+
+::: incorrect
 
 ```js
 /* eslint implicit-arrow-linebreak: ["error", "beside"] */
@@ -45,7 +44,11 @@ Examples of **incorrect** code for this rule with the default `"beside"` option:
 );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"beside"` option:
+
+::: correct
 
 ```js
 /* eslint implicit-arrow-linebreak: ["error", "beside"] */
@@ -72,7 +75,11 @@ Examples of **correct** code for this rule with the default `"beside"` option:
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"below"` option:
+
+::: incorrect
 
 ```js
 /* eslint implicit-arrow-linebreak: ["error", "below"] */
@@ -84,7 +91,11 @@ Examples of **incorrect** code for this rule with the `"below"` option:
 (foo) => bar => baz;
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"below"` option:
+
+::: correct
 
 ```js
 /* eslint implicit-arrow-linebreak: ["error", "below"] */
@@ -99,6 +110,8 @@ Examples of **correct** code for this rule with the `"below"` option:
   bar =>
     baz;
 ```
+
+:::
 
 ## When Not To Use It
 

@@ -1,7 +1,6 @@
 ---
 title: valid-jsdoc
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/valid-jsdoc.md
 rule_type: suggestion
 related_rules:
 - require-jsdoc
@@ -9,9 +8,7 @@ further_reading:
 - https://jsdoc.app
 ---
 
-<!--FIXABLE-->
 
-Enforces valid JSDoc comments.
 
 This rule was [**deprecated**](https://eslint.org/blog/2018/11/jsdoc-end-of-life) in ESLint v5.10.0.
 
@@ -49,6 +46,8 @@ This rule does not report missing JSDoc comments for classes, functions, or meth
 **Note:** This rule does not support all of the Google Closure documentation tool's use cases. As such, some code such as `(/**number*/ n => n * 2);` will be flagged as missing appropriate function JSDoc comments even though `/**number*/` is intended to be a type hint and not a documentation block for the function. We don't recommend using this rule if you use type hints in this way.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint valid-jsdoc: "error"*/
@@ -88,7 +87,11 @@ function sum(num1, num2) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint valid-jsdoc: "error"*/
@@ -165,6 +168,8 @@ class WonderfulWidget extends Widget {
 }
 ```
 
+:::
+
 ## Options
 
 This rule has an object option:
@@ -183,6 +188,8 @@ This rule has an object option:
 ### prefer
 
 Examples of additional **incorrect** code for this rule with sample `"prefer": { "arg": "param", "argument": "param", "class": "constructor", "return": "returns", "virtual": "abstract" }` options:
+
+::: incorrect
 
 ```js
 /*eslint valid-jsdoc: ["error", { "prefer": { "arg": "param", "argument": "param", "class": "constructor", "return": "returns", "virtual": "abstract" } }]*/
@@ -222,9 +229,13 @@ class Widget {
 }
 ```
 
+:::
+
 ### preferType
 
 Examples of additional **incorrect** code for this rule with sample `"preferType": { "Boolean": "boolean", "Number": "number", "object": "Object", "String": "string" }` options:
+
+::: incorrect
 
 ```js
 /*eslint valid-jsdoc: ["error", { "preferType": { "Boolean": "boolean", "Number": "number", "object": "Object", "String": "string" } }]*/
@@ -262,9 +273,13 @@ class Widget {
 }
 ```
 
+:::
+
 ### requireReturn
 
 Examples of additional **incorrect** code for this rule with the `"requireReturn": false` option:
+
+::: incorrect
 
 ```js
 /*eslint valid-jsdoc: ["error", { "requireReturn": false }]*/
@@ -291,7 +306,11 @@ class Widget {
 }
 ```
 
+:::
+
 Example of additional **correct** code for this rule with the `"requireReturn": false` option:
+
+::: correct
 
 ```js
 /*eslint valid-jsdoc: ["error", { "requireReturn": false }]*/
@@ -304,9 +323,13 @@ function greet(name) {
 }
 ```
 
+:::
+
 ### requireReturnType
 
 Example of additional **correct** code for this rule with the `"requireReturnType": false` option:
+
+::: correct
 
 ```js
 /*eslint valid-jsdoc: ["error", { "requireReturnType": false }]*/
@@ -322,9 +345,13 @@ function add(num1, num2) {
 }
 ```
 
+:::
+
 ### requireParamType
 
 Example of additional **correct** code for this rule with the `"requireParamType": false` option:
+
+::: correct
 
 ```js
 /*eslint valid-jsdoc: ["error", { "requireParamType": false }]*/
@@ -340,9 +367,13 @@ function add(num1, num2) {
 }
 ```
 
+:::
+
 ### matchDescription
 
 Example of additional **incorrect** code for this rule with a sample `"matchDescription": ".+"` option:
+
+::: incorrect
 
 ```js
 /*eslint valid-jsdoc: ["error", { "matchDescription": ".+" }]*/
@@ -357,9 +388,13 @@ function greet(name) {
 }
 ```
 
+:::
+
 ### requireParamDescription
 
 Example of additional **correct** code for this rule with the `"requireParamDescription": false` option:
+
+::: correct
 
 ```js
 /*eslint valid-jsdoc: ["error", { "requireParamDescription": false }]*/
@@ -375,9 +410,13 @@ function add(num1, num2) {
 }
 ```
 
+:::
+
 ### requireReturnDescription
 
 Example of additional **correct** code for this rule with the `"requireReturnDescription": false` option:
+
+::: correct
 
 ```js
 /*eslint valid-jsdoc: ["error", { "requireReturnDescription": false }]*/
@@ -392,6 +431,8 @@ function add(num1, num2) {
     return num1 + num2;
 }
 ```
+
+:::
 
 ## When Not To Use It
 

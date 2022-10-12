@@ -1,13 +1,10 @@
 ---
 title: no-dupe-keys
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-dupe-keys.md
 rule_type: problem
 ---
 
-<!--RECOMMENDED-->
 
-Disallows duplicate keys in object literals.
 
 Multiple properties with the same key in object literals can cause unexpected behavior in your application.
 
@@ -23,6 +20,8 @@ var foo = {
 This rule disallows duplicate keys in object literals.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-dupe-keys: "error"*/
@@ -43,7 +42,11 @@ var foo = {
 };
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-dupe-keys: "error"*/
@@ -53,3 +56,5 @@ var foo = {
     quxx: "qux"
 };
 ```
+
+:::

@@ -1,7 +1,6 @@
 ---
 title: no-setter-return
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-setter-return.md
 rule_type: problem
 related_rules:
 - getter-return
@@ -9,9 +8,7 @@ further_reading:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
 ---
 
-<!--RECOMMENDED-->
 
-Disallows returning values from setters.
 
 Setters cannot return values.
 
@@ -30,6 +27,8 @@ This rule checks setters in:
 * Property descriptors in `Object.create`, `Object.defineProperty`, `Object.defineProperties`, and `Reflect.defineProperty` methods of the global objects.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-setter-return: "error"*/
@@ -68,7 +67,11 @@ Object.defineProperty(foo, "bar", {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-setter-return: "error"*/
@@ -104,3 +107,5 @@ Object.defineProperty(foo, "bar", {
     }
 });
 ```
+
+:::

@@ -1,15 +1,12 @@
 ---
 title: no-cond-assign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-cond-assign.md
 rule_type: problem
 related_rules:
 - no-extra-parens
 ---
 
-<!--RECOMMENDED-->
 
-Disallows assignment operators in conditional statements.
 
 In conditional statements, it is very easy to mistype a comparison operator (such as `==`) as an assignment operator (such as `=`). For example:
 
@@ -37,6 +34,8 @@ This rule has a string option:
 
 Examples of **incorrect** code for this rule with the default `"except-parens"` option:
 
+::: incorrect
+
 ```js
 /*eslint no-cond-assign: "error"*/
 
@@ -55,7 +54,11 @@ function setHeight(someNode) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"except-parens"` option:
+
+::: correct
 
 ```js
 /*eslint no-cond-assign: "error"*/
@@ -82,11 +85,15 @@ function setHeight(someNode) {
     } while ((someNode = someNode.parentNode) !== null);
 }
 ```
+
+:::
 
 ### always
 
 Examples of **incorrect** code for this rule with the `"always"` option:
 
+::: incorrect
+
 ```js
 /*eslint no-cond-assign: ["error", "always"]*/
 
@@ -121,7 +128,11 @@ function setHeight(someNode) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always"` option:
+
+::: correct
 
 ```js
 /*eslint no-cond-assign: ["error", "always"]*/
@@ -132,3 +143,5 @@ if (x === 0) {
     var b = 1;
 }
 ```
+
+:::

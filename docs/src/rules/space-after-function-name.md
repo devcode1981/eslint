@@ -1,7 +1,6 @@
 ---
 title: space-after-function-name
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/space-after-function-name.md
 
 ---
 
@@ -29,6 +28,8 @@ This rule aims to enforce a consistent spacing after function names. It takes on
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 function foo (x) {
     // ...
@@ -42,7 +43,11 @@ function bar(x) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 function foo(x) {
@@ -56,3 +61,5 @@ function bar (x) {
     // ...
 }
 ```
+
+:::

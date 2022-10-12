@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ config.lang }}" class="no-js">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if NOINDEX %}
+    <meta name="robots" content="noindex">
+    {% endif %}
     {% if title %}
         {% set page_title = title %}
     {% else %}
@@ -21,7 +23,10 @@
     <!-- SEO -->
     <title>{{ page_title }}</title>
     <meta name="description" content="{{ page_desc }}">
-    <link rel="canonical" href="{{page_url}}">
+    <link rel="canonical" href="{{ page_url }}">
+    
+    <!-- https://github.com/eslint/eslint/issues/15844 -->
+    <base href="{{ relative_page_url }}">
 
     <!-- favicon -->
     <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
@@ -56,6 +61,8 @@
     <link rel="preload" href="{{ '/assets/fonts/SpaceGrotesk-Medium-subset.woff2' | url }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ '/assets/fonts/Inter-Regular-subset.woff2' | url }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ '/assets/fonts/SpaceMono-Regular-subset.woff2' | url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ '/assets/fonts/Consolas.woff' | url }}" as="font" type="font/woff" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com/">
 
     <script>
          (function () {
@@ -69,6 +76,16 @@
 
 
     <style>
+    
+        /* Overrides for funky punctuators */
+        @font-face {
+            font-family: "Mono Punctuators";
+            src: url("{{ '/assets/fonts/Consolas.woff' | url }}") format("woff");
+            font-weight: 400;
+            unicode-range: U+40, U+7B, U+7D, U+28, U+29;
+            font-display: swap;
+        }
+        
         /* Space Grotesk for headings */
         @font-face {
             font-family: "Space Grotesk";
@@ -116,6 +133,7 @@
     <script type="module" src="{{ '/assets/js/search.js' | url }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/styles.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/print.css' | url }}" media="print">
+    <script src="https://unpkg.com/anchor-js@4.3.1/anchor.min.js"></script>
 </head>
 
 <body class="{{ hook }} docs">

@@ -1,7 +1,6 @@
 ---
 title: semi
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/semi.md
 rule_type: layout
 related_rules:
 - no-extra-semi
@@ -12,9 +11,7 @@ further_reading:
 - https://web.archive.org/web/20200420230322/http://inimino.org/~inimino/blog/javascript_semicolons
 ---
 
-<!--FIXABLE-->
 
-Requires or disallows semicolons instead of ASI.
 
 JavaScript doesn't require semicolons at the end of each statement. In many cases, the JavaScript engine can determine that a semicolon should be in a certain spot and will automatically add it. This feature is known as **automatic semicolon insertion (ASI)** and is considered one of the more controversial features of JavaScript. For example, the following lines are both valid:
 

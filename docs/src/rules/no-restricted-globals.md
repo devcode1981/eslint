@@ -1,14 +1,12 @@
 ---
 title: no-restricted-globals
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-restricted-globals.md
 rule_type: suggestion
 related_rules:
 - no-restricted-properties
 - no-restricted-syntax
 ---
 
-Disallows specific global variables.
 
 Disallowing usage of specific global variables can be useful if you want to allow a set of global
 variables by enabling an environment, but still want to disallow some of those.
@@ -55,6 +53,8 @@ Alternatively, the rule also accepts objects, where the global name and an optio
 
 Examples of **incorrect** code for sample `"event", "fdescribe"` global variable names:
 
+::: incorrect
+
 ```js
 /*global event, fdescribe*/
 /*eslint no-restricted-globals: ["error", "event", "fdescribe"]*/
@@ -67,7 +67,11 @@ fdescribe("foo", function() {
 });
 ```
 
+:::
+
 Examples of **correct** code for a sample `"event"` global variable name:
+
+::: correct
 
 ```js
 /*global event*/
@@ -76,6 +80,10 @@ Examples of **correct** code for a sample `"event"` global variable name:
 import event from "event-module";
 ```
 
+:::
+
+::: correct
+
 ```js
 /*global event*/
 /*eslint no-restricted-globals: ["error", "event"]*/
@@ -83,7 +91,11 @@ import event from "event-module";
 var event = 1;
 ```
 
+:::
+
 Examples of **incorrect** code for a sample `"event"` global variable name, along with a custom error message:
+
+::: incorrect
 
 ```js
 /*global event*/
@@ -93,3 +105,5 @@ function onClick() {
     console.log(event);    // Unexpected global variable 'event'. Use local parameter instead.
 }
 ```
+
+:::

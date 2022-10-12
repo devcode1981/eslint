@@ -1,13 +1,10 @@
 ---
 title: multiline-comment-style
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/multiline-comment-style.md
 rule_type: suggestion
 ---
 
-<!--FIXABLE-->
 
-Enforces a particular style for multiline comments.
 
 Many style guides require a particular style for comments that span multiple lines. For example, some style guides prefer the use of a single block comment for multiline comments, whereas other style guides prefer consecutive line comments.
 
@@ -26,6 +23,8 @@ This rule has a string option, which can have one of the following values:
 The rule always ignores directive comments such as `/* eslint-disable */`. Additionally, unless the mode is `"starred-block"`, the rule ignores JSDoc comments.
 
 Examples of **incorrect** code for this rule with the default `"starred-block"` option:
+
+::: incorrect
 
 ```js
 
@@ -57,7 +56,11 @@ foo();
 
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"starred-block"` option:
+
+::: correct
 
 ```js
 /* eslint multiline-comment-style: ["error", "starred-block"] */
@@ -71,7 +74,11 @@ foo();
 // single-line comment
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"bare-block"` option:
+
+::: incorrect
 
 ```js
 /* eslint multiline-comment-style: ["error", "bare-block"] */
@@ -87,7 +94,11 @@ foo();
 foo();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"bare-block"` option:
+
+::: correct
 
 ```js
 /* eslint multiline-comment-style: ["error", "bare-block"] */
@@ -97,7 +108,11 @@ Examples of **correct** code for this rule with the `"bare-block"` option:
 foo();
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"separate-lines"` option:
+
+::: incorrect
 
 ```js
 
@@ -115,7 +130,11 @@ foo();
 
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"separate-lines"` option:
+
+::: correct
 
 ```js
 /* eslint multiline-comment-style: ["error", "separate-lines"] */
@@ -125,6 +144,8 @@ Examples of **correct** code for this rule with the `"separate-lines"` option:
 foo();
 
 ```
+
+:::
 
 ## When Not To Use It
 

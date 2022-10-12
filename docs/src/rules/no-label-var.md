@@ -1,7 +1,6 @@
 ---
 title: no-label-var
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-label-var.md
 rule_type: suggestion
 related_rules:
 - no-extra-label
@@ -9,13 +8,14 @@ related_rules:
 - no-unused-labels
 ---
 
-Disallows labels that are variable names.
 
 ## Rule Details
 
 This rule aims to create clearer code by disallowing the bad practice of creating a label that shares a name with a variable that is in scope.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-label-var: "error"*/
@@ -29,7 +29,11 @@ x:
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-label-var: "error"*/
@@ -47,6 +51,8 @@ q:
   }
 }
 ```
+
+:::
 
 ## When Not To Use It
 

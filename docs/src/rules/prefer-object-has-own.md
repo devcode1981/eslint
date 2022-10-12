@@ -1,15 +1,12 @@
 ---
 title: prefer-object-has-own
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-object-has-own.md
 rule_type: suggestion
 further_reading:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn
 ---
 
-<!--FIXABLE-->
 
-Prefer `Object.hasOwn()` over `Object.prototype.hasOwnProperty.call()`.
 
 It is very common to write code like:
 
@@ -33,6 +30,8 @@ if (Object.hasOwn(object, "foo")) {
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint prefer-object-has-own: "error"*/
 
@@ -45,7 +44,11 @@ Object.hasOwnProperty.call(obj, "a");
 const hasProperty = Object.prototype.hasOwnProperty.call(object, property);
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint prefer-object-has-own: "error"*/
@@ -54,6 +57,8 @@ Object.hasOwn(obj, "a");
 
 const hasProperty = Object.hasOwn(object, property);
 ```
+
+:::
 
 ## When Not To Use It
 

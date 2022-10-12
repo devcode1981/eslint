@@ -1,13 +1,10 @@
 ---
 title: no-this-before-super
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-this-before-super.md
 rule_type: problem
 ---
 
-<!--RECOMMENDED-->
 
-Disallows use of `this`/`super` before calling `super()` in constructors.
 
 In the constructor of derived classes, if `this`/`super` are used before `super()` calls, it raises a reference error.
 
@@ -20,6 +17,8 @@ This rule is aimed to flag `this`/`super` keywords before `super()` callings.
 ## Examples
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-this-before-super: "error"*/
@@ -53,7 +52,11 @@ class A extends B {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-this-before-super: "error"*/
@@ -78,6 +81,8 @@ class A extends B {
     }
 }
 ```
+
+:::
 
 ## When Not To Use It
 

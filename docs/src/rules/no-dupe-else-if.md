@@ -1,16 +1,13 @@
 ---
 title: no-dupe-else-if
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-dupe-else-if.md
 rule_type: problem
 related_rules:
 - no-duplicate-case
 - no-lonely-if
 ---
 
-<!--RECOMMENDED-->
 
-Disallows duplicate conditions in `if-else-if` chains.
 
 `if-else-if` chains are commonly used when there is a need to execute only one branch (or at most one branch) out of several possible branches, based on certain conditions.
 
@@ -43,6 +40,8 @@ In the above example, `baz()` can never execute. Obviously, `baz()` could be exe
 This rule disallows duplicate conditions in the same `if-else-if` chain.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-dupe-else-if: "error"*/
@@ -78,7 +77,11 @@ if (n === 1) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-dupe-else-if: "error"*/
@@ -114,9 +117,13 @@ if (n === 1) {
 }
 ```
 
+:::
+
 This rule can also detect some cases where the conditions are not identical, but the branch can never execute due to the logic of `||` and `&&` operators.
 
 Examples of additional **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-dupe-else-if: "error"*/
@@ -161,6 +168,8 @@ if (a) {
     baz();
 }
 ```
+
+:::
 
 Please note that this rule does not compare conditions from the chain with conditions inside statements, and will not warn in the cases such as follows:
 

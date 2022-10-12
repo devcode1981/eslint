@@ -1,11 +1,9 @@
 ---
 title: id-denylist
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/id-denylist.md
 rule_type: suggestion
 ---
 
-Disallows specified identifiers.
 
 > "There are only two hard things in Computer Science: cache invalidation and naming things." — Phil Karlton
 
@@ -40,7 +38,11 @@ For example, to restrict the use of common generic identifiers:
 }
 ```
 
+**Note:** The first element of the array is for the rule severity (see [configuring rules](/docs/latest/user-guide/configuring/rules). The other elements in the array are the identifiers that you want to disallow.
+
 Examples of **incorrect** code for this rule with sample `"data", "callback"` restricted identifiers:
+
+::: incorrect
 
 ```js
 /*eslint id-denylist: ["error", "data", "callback"] */
@@ -76,7 +78,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with sample `"data", "callback"` restricted identifiers:
+
+::: correct
 
 ```js
 /*eslint id-denylist: ["error", "data", "callback"] */
@@ -117,6 +123,8 @@ class Foo {
     #method( {);
 }
 ```
+
+:::
 
 ## When Not To Use It
 

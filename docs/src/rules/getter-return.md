@@ -1,16 +1,13 @@
 ---
 title: getter-return
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/getter-return.md
 rule_type: problem
 further_reading:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
 - https://leanpub.com/understandinges6/read/#leanpub-auto-accessor-properties
 ---
 
-<!--RECOMMENDED-->
 
-Enforces that a `return` statement is present in property getters.
 
 The get syntax binds an object property to a function that will be called when that property is looked up. It was first introduced in ECMAScript 5:
 
@@ -36,6 +33,8 @@ This rule enforces that a return statement is present in property getters.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint getter-return: "error"*/
 
@@ -58,7 +57,11 @@ class P{
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint getter-return: "error"*/
@@ -82,6 +85,8 @@ class P{
 }
 ```
 
+:::
+
 ## Options
 
 This rule has an object option:
@@ -89,6 +94,8 @@ This rule has an object option:
 * `"allowImplicit": false` (default) disallows implicitly returning `undefined` with a `return` statement.
 
 Examples of **correct** code for the `{ "allowImplicit": true }` option:
+
+::: correct
 
 ```js
 /*eslint getter-return: ["error", { allowImplicit: true }]*/
@@ -98,6 +105,8 @@ p = {
     }
 };
 ```
+
+:::
 
 ## When Not To Use It
 

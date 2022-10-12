@@ -1,7 +1,6 @@
 ---
 title: no-new-wrappers
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-new-wrappers.md
 rule_type: suggestion
 related_rules:
 - no-array-constructor
@@ -10,7 +9,6 @@ further_reading:
 - https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-3/wrapper-objects
 ---
 
-Disallows `new` operators with the `String`, `Number`, and `Boolean` objects.
 
 There are three primitive types in JavaScript that have wrapper objects: string, number, and boolean. These are represented by the constructors `String`, `Number`, and `Boolean`, respectively. The primitive wrapper types are used whenever one of these primitive values is read, providing them with object-like capabilities such as methods. Behind the scenes, an object of the associated wrapper type is created and then destroyed, which is why you can call methods on primitive values, such as:
 
@@ -53,6 +51,8 @@ This rule aims to eliminate the use of `String`, `Number`, and `Boolean` with th
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-new-wrappers: "error"*/
 
@@ -65,7 +65,11 @@ var numberObject = new Number;
 var booleanObject = new Boolean;
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-new-wrappers: "error"*/
@@ -75,6 +79,8 @@ var num = Number(someValue);
 
 var object = new MyString();
 ```
+
+:::
 
 ## When Not To Use It
 

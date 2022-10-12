@@ -1,16 +1,13 @@
 ---
 title: prefer-template
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-template.md
 rule_type: suggestion
 related_rules:
 - no-useless-concat
 - quotes
 ---
 
-<!--FIXABLE-->
 
-Suggests using template literals instead of string concatenation.
 
 In ES2015 (ES6), we can use template literals instead of string concatenation.
 
@@ -32,6 +29,8 @@ This rule is aimed to flag usage of `+` operators with strings.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint prefer-template: "error"*/
 
@@ -39,7 +38,11 @@ var str = "Hello, " + name + "!";
 var str = "Time: " + (12 * 60 * 60 * 1000);
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint prefer-template: "error"*/
@@ -52,6 +55,8 @@ var str = `Time: ${12 * 60 * 60 * 1000}`;
 // This is reported by `no-useless-concat`.
 var str = "Hello, " + "World!";
 ```
+
+:::
 
 ## When Not To Use It
 

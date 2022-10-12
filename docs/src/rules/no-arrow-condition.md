@@ -1,7 +1,6 @@
 ---
 title: no-arrow-condition
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-arrow-condition.md
 
 related_rules:
 - arrow-parens
@@ -39,6 +38,8 @@ var x = a <= 1 ? 2 : 3
 
 Examples of **incorrect** code for this rule:
 
+:::incorrect
+
 ```js
 /*eslint no-arrow-condition: "error"*/
 /*eslint-env es6*/
@@ -51,3 +52,5 @@ a => 1 ? 2 : 3
 var x = a => 1 ? 2 : 3
 var x = (a) => 1 ? 2 : 3
 ```
+
+:::

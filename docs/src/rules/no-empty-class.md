@@ -1,7 +1,6 @@
 ---
 title: no-empty-class
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-empty-class.md
 
 ---
 
@@ -21,6 +20,8 @@ This rule is aimed at highlighting possible typos and unexpected behavior in reg
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 var foo = /^abc[]/;
 
@@ -29,7 +30,11 @@ var foo = /^abc[]/;
 bar.match(/^abc[]/);
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 var foo = /^abc/;
@@ -38,3 +43,5 @@ var foo = /^abc[a-z]/;
 
 var bar = new RegExp("^abc[]");
 ```
+
+:::

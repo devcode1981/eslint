@@ -1,13 +1,10 @@
 ---
 title: no-duplicate-case
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-duplicate-case.md
 rule_type: problem
 ---
 
-<!--RECOMMENDED-->
 
-Disallows duplicate `case` labels.
 
 If a `switch` statement has duplicate test expressions in `case` clauses, it is likely that a programmer copied a `case` clause but forgot to change the test expression.
 
@@ -16,6 +13,8 @@ If a `switch` statement has duplicate test expressions in `case` clauses, it is 
 This rule disallows duplicate test expressions in `case` clauses of `switch` statements.
 
 Examples of **incorrect** code for this rule:
+
+:::incorrect
 
 ```js
 /*eslint no-duplicate-case: "error"*/
@@ -57,7 +56,11 @@ switch (a) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+:::correct
 
 ```js
 /*eslint no-duplicate-case: "error"*/
@@ -98,6 +101,8 @@ switch (a) {
         break;
 }
 ```
+
+:::
 
 ## When Not To Use It
 

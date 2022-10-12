@@ -1,7 +1,6 @@
 ---
 title: no-debugger
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-debugger.md
 rule_type: problem
 related_rules:
 - no-alert
@@ -10,9 +9,7 @@ further_reading:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger
 ---
 
-<!--RECOMMENDED-->
 
-Disallows the use of `debugger`.
 
 The `debugger` statement is used to tell the executing JavaScript environment to stop execution and start up a debugger at the current point in the code. This has fallen out of favor as a good practice with the advent of modern debugging and development tools. Production code should definitely not contain `debugger`, as it will cause the browser to stop executing code and open an appropriate debugger.
 
@@ -21,6 +18,8 @@ The `debugger` statement is used to tell the executing JavaScript environment to
 This rule disallows `debugger` statements.
 
 Example of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-debugger: "error"*/
@@ -31,7 +30,11 @@ function isTruthy(x) {
 }
 ```
 
+:::
+
 Example of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-debugger: "error"*/
@@ -40,6 +43,8 @@ function isTruthy(x) {
     return Boolean(x); // set a breakpoint at this line
 }
 ```
+
+:::
 
 ## When Not To Use It
 

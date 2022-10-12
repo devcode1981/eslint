@@ -1,16 +1,13 @@
 ---
 title: no-unneeded-ternary
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-unneeded-ternary.md
 rule_type: suggestion
 related_rules:
 - no-ternary
 - no-nested-ternary
 ---
 
-<!--FIXABLE-->
 
-Disallows ternary operators when simpler alternatives exist.
 
 It's a common mistake in JavaScript to use a conditional expression to select between two Boolean values instead of using ! to convert the test to a Boolean.
 Here are some examples:
@@ -46,6 +43,8 @@ This rule disallow ternary operators when simpler alternatives exist.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-unneeded-ternary: "error"*/
 
@@ -54,7 +53,11 @@ var a = x === 2 ? true : false;
 var a = x ? true : false;
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-unneeded-ternary: "error"*/
@@ -70,6 +73,8 @@ var a = x ? y : x;
 f(x ? x : 1); // default assignment - would be disallowed if defaultAssignment option set to false. See option details below.
 ```
 
+:::
+
 ## Options
 
 This rule has an object option:
@@ -83,6 +88,8 @@ When set to `true`, which it is by default, The defaultAssignment option allows 
 
 Examples of additional **incorrect** code for this rule with the `{ "defaultAssignment": false }` option:
 
+::: incorrect
+
 ```js
 /*eslint no-unneeded-ternary: ["error", { "defaultAssignment": false }]*/
 
@@ -90,6 +97,8 @@ var a = x ? x : 1;
 
 f(x ? x : 1);
 ```
+
+:::
 
 Note that `defaultAssignment: false` still allows expressions of the form `x ? expr : x` (where the identifier is on the right hand side of the ternary).
 

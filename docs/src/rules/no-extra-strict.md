@@ -1,7 +1,6 @@
 ---
 title: no-extra-strict
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-extra-strict.md
 
 further_reading:
 - https://es5.github.io/#C
@@ -28,6 +27,8 @@ This rule is aimed at preventing unnecessary `"use strict";` directives. As such
 
 Example of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 "use strict";
 
@@ -36,9 +37,13 @@ Example of **incorrect** code for this rule:
     var foo = true;
 }());
 ```
+
+:::
 
 Examples of **correct** code for this rule:
 
+::: correct
+
 ```js
 "use strict";
 
@@ -47,9 +52,15 @@ Examples of **correct** code for this rule:
 }());
 ```
 
+:::
+
+::: correct
+
 ```js
 (function () {
     "use strict";
     var foo = true;
 }());
 ```
+
+:::

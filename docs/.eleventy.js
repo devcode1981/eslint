@@ -4,11 +4,11 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginTOC = require("eleventy-plugin-nesting-toc");
-const slugify = require("slugify");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItContainer = require("markdown-it-container");
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
+const { slug } = require("github-slugger");
 const yaml = require("js-yaml");
 
 const {
@@ -49,6 +49,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addGlobalData("site_name", siteName);
     eleventyConfig.addGlobalData("GIT_BRANCH", process.env.BRANCH);
+    eleventyConfig.addGlobalData("NOINDEX", process.env.BRANCH !== "latest");
     eleventyConfig.addDataExtension("yml", contents => yaml.load(contents));
 
     //------------------------------------------------------------------------------
@@ -59,16 +60,23 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addFilter("jsonify", variable => JSON.stringify(variable));
 
+    /**
+     * Takes in a string and converts to a slug
+     * @param {string} text text to be converted into slug
+     * @returns {string} slug to be used as anchors
+     */
+    function slugify(text) {
+        return slug(text.replace(/[<>()[\]{}]/gu, ""))
+        // eslint-disable-next-line no-control-regex -- used regex from https://github.com/eslint/archive-website/blob/master/_11ty/plugins/markdown-plugins.js#L37
+            .replace(/[^\u{00}-\u{FF}]/gu, "");
+    }
+
     eleventyConfig.addFilter("slugify", str => {
         if (!str) {
             return "";
         }
 
-        return slugify(str, {
-            lower: true,
-            strict: true,
-            remove: /["]/gu
-        });
+        return slugify(str);
     });
 
     eleventyConfig.addFilter("URIencode", str => {
@@ -148,14 +156,59 @@ module.exports = function(eleventyConfig) {
         headingTag: "h2" // Heading tag when showing heading above the wrapper element
     });
 
-    // add IDs to the headers
+    /** @typedef {import("markdown-it/lib/token")} MarkdownItToken A MarkdownIt token. */
+
+    /**
+     * Generates HTML markup for an inline alert.
+     * @param {"warning"|"tip"|"important"} type The type of alert to create.
+     * @param {Array<MarkdownItToken>} tokens Array of MarkdownIt tokens to use.
+     * @param {number} index The index of the current token in the tokens array.
+     * @returns {string} The markup for the alert.
+     */
+    function generateAlertMarkup(type, tokens, index) {
+        if (tokens[index].nesting === 1) {
+            return `
+                <aside role="note" class="alert alert--${type}">
+                    <svg class="alert__icon" aria-hidden="true" focusable="false" width="19" height="20" viewBox="0 0 19 20" fill="none">
+                        <path d="M9.49999 6.66667V10M9.49999 13.3333H9.50832M17.8333 10C17.8333 14.6024 14.1024 18.3333 9.49999 18.3333C4.89762 18.3333 1.16666 14.6024 1.16666 10C1.16666 5.39763 4.89762 1.66667 9.49999 1.66667C14.1024 1.66667 17.8333 5.39763 17.8333 10Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="alert__content">
+                        <span class="alert__type">${type[0].toUpperCase()}${type.slice(1)}</span>
+                        <div class="alert__text">
+            `.trim();
+        }
+
+        return `
+                        </div>
+                    </div>
+                </aside>
+        `.trim();
+    }
+
     const markdownIt = require("markdown-it");
 
     eleventyConfig.setLibrary("md",
         markdownIt({ html: true, linkify: true, typographer: true })
-            .use(markdownItAnchor, {})
+            .use(markdownItAnchor, {
+                slugify
+            })
             .use(markdownItContainer, "correct", {})
             .use(markdownItContainer, "incorrect", {})
+            .use(markdownItContainer, "warning", {
+                render(tokens, idx) {
+                    return generateAlertMarkup("warning", tokens, idx);
+                }
+            })
+            .use(markdownItContainer, "tip", {
+                render(tokens, idx) {
+                    return generateAlertMarkup("tip", tokens, idx);
+                }
+            })
+            .use(markdownItContainer, "important", {
+                render(tokens, idx) {
+                    return generateAlertMarkup("important", tokens, idx);
+                }
+            })
             .disable("code"));
 
     //------------------------------------------------------------------------------
@@ -406,6 +459,26 @@ module.exports = function(eleventyConfig) {
             return next();
         }
     });
+
+    /*
+     * Generate the sitemap only in certain contexts to prevent unwanted discovery of sitemaps that
+     * contain URLs we'd prefer not to appear in search results (URLs in sitemaps are considered important).
+     * In particular, we don't want to deploy https://eslint.org/docs/head/sitemap.xml
+     * We want to generate the sitemap for:
+     *   - Local previews
+     *   - Netlify deploy previews
+     *   - Netlify production deploy of the `latest` branch (https://eslint.org/docs/latest/sitemap.xml)
+     *
+     * Netlify always sets `CONTEXT` environment variable. If it isn't set, we assume this is a local build.
+     */
+    if (
+        process.env.CONTEXT && // if this is a build on Netlify ...
+        process.env.CONTEXT !== "deploy-preview" && // ... and not for a deploy preview ...
+        process.env.BRANCH !== "latest" // .. and not of the `latest` branch ...
+    ) {
+        eleventyConfig.ignores.add("src/static/sitemap.njk"); // ... then don't generate the sitemap.
+    }
+
 
     return {
         passthroughFileCopy: true,

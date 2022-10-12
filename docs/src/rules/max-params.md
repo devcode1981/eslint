@@ -1,7 +1,6 @@
 ---
 title: max-params
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/max-params.md
 rule_type: suggestion
 related_rules:
 - complexity
@@ -13,7 +12,6 @@ related_rules:
 - max-statements
 ---
 
-Enforces a maximum number of parameters in function definitions.
 
 Functions that take numerous parameters can be difficult to read and write because it requires the memorization of what each parameter is, its type, and the order they should appear in. As a result, many coders adhere to a convention that caps the number of parameters a function can take.
 
@@ -39,6 +37,8 @@ This rule has a number or object option:
 
 Examples of **incorrect** code for this rule with the default `{ "max": 3 }` option:
 
+:::incorrect
+
 ```js
 /*eslint max-params: ["error", 3]*/
 /*eslint-env es6*/
@@ -52,7 +52,11 @@ let foo = (bar, baz, qux, qxx) => {
 };
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "max": 3 }` option:
+
+:::correct
 
 ```js
 /*eslint max-params: ["error", 3]*/
@@ -66,3 +70,5 @@ let foo = (bar, baz, qux) => {
     doSomething();
 };
 ```
+
+:::
