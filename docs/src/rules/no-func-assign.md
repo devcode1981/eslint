@@ -1,13 +1,10 @@
 ---
 title: no-func-assign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-func-assign.md
 rule_type: problem
 ---
 
-<!--RECOMMENDED-->
 
-Disallows reassigning `function` declarations.
 
 JavaScript functions can be written as a FunctionDeclaration `function foo() { ... }` or as a FunctionExpression `var foo = function() { ... };`. While a JavaScript interpreter might tolerate it, overwriting/reassigning a function written as a FunctionDeclaration is often indicative of a mistake or issue.
 
@@ -21,6 +18,8 @@ foo = bar;
 This rule disallows reassigning `function` declarations.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-func-assign: "error"*/
@@ -37,7 +36,11 @@ var a = function hello() {
 };
 ```
 
+:::
+
 Examples of **incorrect** code for this rule, unlike the corresponding rule in JSHint:
+
+::: incorrect
 
 ```js
 /*eslint no-func-assign: "error"*/
@@ -46,7 +49,11 @@ foo = bar;
 function foo() {}
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-func-assign: "error"*/
@@ -62,3 +69,5 @@ function foo() {
     var foo = bar;  // `foo` is shadowed.
 }
 ```
+
+:::

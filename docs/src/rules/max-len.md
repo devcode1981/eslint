@@ -1,7 +1,6 @@
 ---
 title: max-len
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/max-len.md
 rule_type: layout
 related_rules:
 - complexity
@@ -11,7 +10,6 @@ related_rules:
 - max-statements
 ---
 
-Enforces a maximum line length.
 
 Very long lines of code in any language can be difficult to read. In order to aid in readability and maintainability many coders have developed a convention to limit lines of code to X number of characters (traditionally 80 characters).
 
@@ -42,13 +40,19 @@ This rule has a number or object option:
 
 Examples of **incorrect** code for this rule with the default `{ "code": 80 }` option:
 
+::: incorrect
+
 ```js
 /*eslint max-len: ["error", { "code": 80 }]*/
 
 var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" }, "difficult": "to read" };
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "code": 80 }` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "code": 80 }]*/
@@ -60,9 +64,13 @@ var foo = {
 };
 ```
 
+:::
+
 ### tabWidth
 
 Examples of **incorrect** code for this rule with the default `{ "tabWidth": 4 }` option:
+
+::: incorrect
 
 ```js
 /*eslint max-len: ["error", { "code": 80, "tabWidth": 4 }]*/
@@ -70,7 +78,11 @@ Examples of **incorrect** code for this rule with the default `{ "tabWidth": 4 }
 \t  \t  var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" } };
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "tabWidth": 4 }` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "code": 80, "tabWidth": 4 }]*/
@@ -81,9 +93,13 @@ Examples of **correct** code for this rule with the default `{ "tabWidth": 4 }` 
 \t  \t  };
 ```
 
+:::
+
 ### comments
 
 Examples of **incorrect** code for this rule with the `{ "comments": 65 }` option:
+
+::: incorrect
 
 ```js
 /*eslint max-len: ["error", { "comments": 65 }]*/
@@ -93,9 +109,13 @@ Examples of **incorrect** code for this rule with the `{ "comments": 65 }` optio
 **/
 ```
 
+:::
+
 ### ignoreComments
 
 Examples of **correct** code for this rule with the `{ "ignoreComments": true }` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "ignoreComments": true }]*/
@@ -105,9 +125,13 @@ Examples of **correct** code for this rule with the `{ "ignoreComments": true }`
 **/
 ```
 
+:::
+
 ### ignoreTrailingComments
 
 Examples of **correct** code for this rule with the `{ "ignoreTrailingComments": true }` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "ignoreTrailingComments": true }]*/
@@ -115,9 +139,13 @@ Examples of **correct** code for this rule with the `{ "ignoreTrailingComments":
 var foo = 'bar'; // This is a really really really really really really really long comment
 ```
 
+:::
+
 ### ignoreUrls
 
 Examples of **correct** code for this rule with the `{ "ignoreUrls": true }` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "ignoreUrls": true }]*/
@@ -125,9 +153,13 @@ Examples of **correct** code for this rule with the `{ "ignoreUrls": true }` opt
 var url = 'https://www.example.com/really/really/really/really/really/really/really/long';
 ```
 
+:::
+
 ### ignoreStrings
 
 Examples of **correct** code for this rule with the `{ "ignoreStrings": true }` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "ignoreStrings": true }]*/
@@ -135,9 +167,13 @@ Examples of **correct** code for this rule with the `{ "ignoreStrings": true }` 
 var longString = 'this is a really really really really really long string!';
 ```
 
+:::
+
 ### ignoreTemplateLiterals
 
 Examples of **correct** code for this rule with the `{ "ignoreTemplateLiterals": true }` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "ignoreTemplateLiterals": true }]*/
@@ -145,9 +181,13 @@ Examples of **correct** code for this rule with the `{ "ignoreTemplateLiterals":
 var longTemplateLiteral = `this is a really really really really really long template literal!`;
 ```
 
+:::
+
 ### ignoreRegExpLiterals
 
 Examples of **correct** code for this rule with the `{ "ignoreRegExpLiterals": true }` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "ignoreRegExpLiterals": true }]*/
@@ -155,12 +195,18 @@ Examples of **correct** code for this rule with the `{ "ignoreRegExpLiterals": t
 var longRegExpLiteral = /this is a really really really really really long regular expression!/;
 ```
 
+:::
+
 ### ignorePattern
 
 Examples of **correct** code for this rule with the `ignorePattern` option:
+
+::: correct
 
 ```js
 /*eslint max-len: ["error", { "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\(" }]*/
 
 var dep = require('really/really/really/really/really/really/really/really/long/module');
 ```
+
+:::

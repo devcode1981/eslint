@@ -1,16 +1,13 @@
 ---
 title: dot-location
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/dot-location.md
 rule_type: layout
 related_rules:
 - newline-after-var
 - dot-notation
 ---
 
-<!--FIXABLE-->
 
-Enforces newline before and after dots.
 
 JavaScript allows you to place newlines before or after a dot in a member expression.
 
@@ -41,6 +38,8 @@ The default `"object"` option requires the dot to be on the same line as the obj
 
 Examples of **incorrect** code for the default `"object"` option:
 
+::: incorrect
+
 ```js
 /*eslint dot-location: ["error", "object"]*/
 
@@ -48,7 +47,11 @@ var foo = object
 .property;
 ```
 
+:::
+
 Examples of **correct** code for the default `"object"` option:
+
+::: correct
 
 ```js
 /*eslint dot-location: ["error", "object"]*/
@@ -64,11 +67,15 @@ property;
 var baz = object.property;
 ```
 
+:::
+
 ### property
 
 The `"property"` option requires the dot to be on the same line as the property.
 
 Examples of **incorrect** code for the `"property"` option:
+
+::: incorrect
 
 ```js
 /*eslint dot-location: ["error", "property"]*/
@@ -77,7 +84,11 @@ var foo = object.
 property;
 ```
 
+:::
+
 Examples of **correct** code for the `"property"` option:
+
+::: correct
 
 ```js
 /*eslint dot-location: ["error", "property"]*/
@@ -86,6 +97,8 @@ var foo = object
 .property;
 var bar = object.property;
 ```
+
+:::
 
 ## When Not To Use It
 

@@ -1,14 +1,12 @@
 ---
 title: no-process-env
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-process-env.md
 rule_type: suggestion
 further_reading:
 - https://stackoverflow.com/questions/5869216/how-to-store-node-js-deployment-settings-configuration-files
 - https://blog.benhall.me.uk/2012/02/storing-application-config-data-in/
 ---
 
-Disallows the use of `process.env`.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -20,6 +18,8 @@ This rule is aimed at discouraging use of `process.env` to avoid global dependen
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-process-env: "error"*/
 
@@ -28,7 +28,11 @@ if(process.env.NODE_ENV === "development") {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-process-env: "error"*/
@@ -39,6 +43,8 @@ if(config.env === "development") {
     //...
 }
 ```
+
+:::
 
 ## When Not To Use It
 

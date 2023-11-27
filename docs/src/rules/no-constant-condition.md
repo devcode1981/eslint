@@ -1,15 +1,12 @@
 ---
 title: no-constant-condition
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-constant-condition.md
 rule_type: problem
 related_rules:
 - no-constant-binary-expression
 ---
 
-<!--RECOMMENDED-->
 
-Disallows constant expressions in conditions.
 
 A constant expression (for example, a literal) as a test condition might be a typo or development trigger for a specific behavior. For example, the following code looks as if it is not ready for production.
 
@@ -27,6 +24,8 @@ This rule disallows constant expressions in the test condition of:
 * `?:` ternary expression
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-constant-condition: "error"*/
@@ -78,7 +77,11 @@ do {
 var result = 0 ? a : b;
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-constant-condition: "error"*/
@@ -102,6 +105,8 @@ do {
 var result = x !== 0 ? a : b;
 ```
 
+:::
+
 ## Options
 
 ### checkLoops
@@ -109,6 +114,8 @@ var result = x !== 0 ? a : b;
 Set to `true` by default. Setting this option to `false` allows constant expressions in loops.
 
 Examples of **correct** code for when `checkLoops` is `false`:
+
+::: correct
 
 ```js
 /*eslint no-constant-condition: ["error", { "checkLoops": false }]*/
@@ -134,3 +141,5 @@ do {
     }
 } while (true)
 ```
+
+:::

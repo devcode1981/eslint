@@ -1,14 +1,12 @@
 ---
 title: handle-callback-err
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/handle-callback-err.md
 rule_type: suggestion
 further_reading:
 - https://github.com/maxogden/art-of-node#callbacks
 - https://web.archive.org/web/20171224042620/https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/
 ---
 
-Enforces callback error handling.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -32,6 +30,8 @@ The rule takes a single string option: the name of the error parameter. The defa
 
 Examples of **incorrect** code for this rule with the default `"err"` parameter name:
 
+::: incorrect
+
 ```js
 /*eslint handle-callback-err: "error"*/
 
@@ -41,7 +41,11 @@ function loadData (err, data) {
 
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"err"` parameter name:
+
+::: correct
 
 ```js
 /*eslint handle-callback-err: "error"*/
@@ -58,7 +62,11 @@ function generateError (err) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with a sample `"error"` parameter name:
+
+::: correct
 
 ```js
 /*eslint handle-callback-err: ["error", "error"]*/
@@ -70,6 +78,8 @@ function loadData (error, data) {
     doSomething();
 }
 ```
+
+:::
 
 ### regular expression
 

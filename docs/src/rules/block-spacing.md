@@ -1,16 +1,13 @@
 ---
 title: block-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/block-spacing.md
 rule_type: layout
 related_rules:
 - space-before-blocks
 - brace-style
 ---
 
-<!--FIXABLE-->
 
-Disallows or enforces spaces inside of blocks after opening blocks and before closing blocks.
 
 ## Rule Details
 
@@ -27,6 +24,8 @@ This rule has a string option:
 
 Examples of **incorrect** code for this rule with the default `"always"` option:
 
+:::incorrect
+
 ```js
 /*eslint block-spacing: "error"*/
 
@@ -41,7 +40,11 @@ class C {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"always"` option:
+
+:::correct
 
 ```js
 /*eslint block-spacing: "error"*/
@@ -54,9 +57,13 @@ class C {
 }
 ```
 
+:::
+
 ### never
 
 Examples of **incorrect** code for this rule with the `"never"` option:
+
+:::incorrect
 
 ```js
 /*eslint block-spacing: ["error", "never"]*/
@@ -69,7 +76,11 @@ class C {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never"` option:
+
+:::correct
 
 ```js
 /*eslint block-spacing: ["error", "never"]*/
@@ -81,6 +92,8 @@ class C {
     static {this.bar = 0;}
 }
 ```
+
+:::
 
 ## When Not To Use It
 

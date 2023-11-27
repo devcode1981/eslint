@@ -1,13 +1,10 @@
 ---
 title: no-var
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-var.md
 rule_type: suggestion
 ---
 
-<!--FIXABLE-->
 
-Requires `let` or `const` instead of `var`.
 
 ECMAScript 6 allows programmers to create variables with block scope instead of function scope using the `let`
 and `const` keywords. Block scope is common in many other programming languages and helps programmers avoid mistakes
@@ -34,6 +31,8 @@ This rule is aimed at discouraging the use of `var` and encouraging the use of `
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-var: "error"*/
 
@@ -41,7 +40,11 @@ var x = "y";
 var CONFIG = {};
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-var: "error"*/
@@ -50,6 +53,8 @@ Examples of **correct** code for this rule:
 let x = "y";
 const CONFIG = {};
 ```
+
+:::
 
 ## When Not To Use It
 

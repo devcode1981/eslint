@@ -1,7 +1,6 @@
 ---
 title: object-property-newline
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/object-property-newline.md
 rule_type: layout
 related_rules:
 - brace-style
@@ -10,9 +9,7 @@ related_rules:
 - object-curly-spacing
 ---
 
-<!--FIXABLE-->
 
-Enforces placing object properties on separate lines.
 
 This rule permits you to restrict the locations of property specifications in object literals. You may prohibit any part of any property specification from appearing on the same line as any part of any other property specification. You may make this prohibition absolute, or, by invoking an object option, you may allow an exception, permitting an object literal to have all parts of all of its property specifications on a single line.
 
@@ -108,7 +105,7 @@ This rule applies equally to all property specifications, regardless of notation
 * `a` (ES2015 shorthand property)
 * ``[`prop${a}`]`` (ES2015 computed property name)
 
-Thus, the rule (without the object option) prohibits both of these:
+Thus, the rule (without the optional exception) prohibits both of these:
 
 ```js
 const newObject = {
@@ -188,6 +185,8 @@ As illustrated above, the `--fix` option, applied to this rule, does not comply 
 
 Examples of **incorrect** code for this rule, with no object option or with `allowAllPropertiesOnSameLine` set to `false`:
 
+::: incorrect
+
 ```js
 /*eslint object-property-newline: "error"*/
 
@@ -222,7 +221,11 @@ const obj5 = {
 ]: true};
 ```
 
+:::
+
 Examples of **correct** code for this rule, with no object option or with `allowAllPropertiesOnSameLine` set to `false`:
+
+::: correct
 
 ```js
 /*eslint object-property-newline: "error"*/
@@ -252,7 +255,11 @@ const obj3 = {
 };
 ```
 
+:::
+
 Examples of additional **correct** code for this rule with the `{ "allowAllPropertiesOnSameLine": true }` option:
+
+::: correct
 
 ```js
 /*eslint object-property-newline: ["error", { "allowAllPropertiesOnSameLine": true }]*/
@@ -267,6 +274,8 @@ const obj3 = {
     user, [process.argv[3] ? "foo" : "bar"]: 0, baz: [1, 2, 4, 8]
 };
 ```
+
+:::
 
 ## When Not To Use It
 

@@ -159,6 +159,7 @@ hr {
 code,
 pre {
     font-family: var(--mono-font);
+    font-variant-ligatures: none;
 }
 
 code {
@@ -434,5 +435,10 @@ h2,
 h1,
 .h1 {
     font-size: var(--step-4);
+    line-height: 1.2;
+}
+
+.h0 {
+    font-size: var(--step-6);
     line-height: 1.2;
 }

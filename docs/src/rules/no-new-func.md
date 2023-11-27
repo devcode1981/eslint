@@ -1,11 +1,9 @@
 ---
 title: no-new-func
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-new-func.md
 rule_type: suggestion
 ---
 
-Disallows `new` operators with the `Function` object.
 
 It's possible to create functions in JavaScript from strings at runtime using the `Function` constructor, such as:
 
@@ -25,6 +23,8 @@ This error is raised to highlight the use of a bad practice. By passing a string
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-new-func: "error"*/
 
@@ -36,7 +36,11 @@ var x = Function.bind(null, "a", "b", "return a + b")();
 var f = Function.bind(null, "a", "b", "return a + b"); // assuming that the result of Function.bind(...) will be eventually called.
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-new-func: "error"*/
@@ -45,6 +49,8 @@ var x = function (a, b) {
     return a + b;
 };
 ```
+
+:::
 
 ## When Not To Use It
 

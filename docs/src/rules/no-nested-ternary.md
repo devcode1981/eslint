@@ -1,14 +1,12 @@
 ---
 title: no-nested-ternary
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-nested-ternary.md
 rule_type: suggestion
 related_rules:
 - no-ternary
 - no-unneeded-ternary
 ---
 
-Disallows nested ternary expressions.
 
 Nesting ternary expressions can make code more difficult to understand.
 
@@ -22,6 +20,8 @@ The `no-nested-ternary` rule disallows nested ternary expressions.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-nested-ternary: "error"*/
 
@@ -30,7 +30,11 @@ var thing = foo ? bar : baz === qux ? quxx : foobar;
 foo ? baz === qux ? quxx() : foobar() : bar();
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-nested-ternary: "error"*/
@@ -47,3 +51,5 @@ if (foo) {
   thing = foobar;
 }
 ```
+
+:::

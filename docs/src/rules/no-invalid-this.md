@@ -1,11 +1,9 @@
 ---
 title: no-invalid-this
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-invalid-this.md
 rule_type: suggestion
 ---
 
-Disallows use of `this` in contexts where the value of `this` is `undefined`.
 
 Under the strict mode, `this` keywords outside of classes or class-like objects might be `undefined` and raise a `TypeError`.
 
@@ -50,6 +48,8 @@ With `"parserOptions": { "sourceType": "module" }` in the ESLint configuration, 
 
 Examples of **incorrect** code for this rule in strict mode:
 
+::: incorrect
+
 ```js
 /*eslint no-invalid-this: "error"*/
 /*eslint-env es6*/
@@ -92,7 +92,11 @@ foo.forEach(function() {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule in strict mode:
+
+::: correct
 
 ```js
 /*eslint no-invalid-this: "error"*/
@@ -222,6 +226,8 @@ function foo() {
 }
 ```
 
+:::
+
 ## Options
 
 This rule has an object option, with one option:
@@ -235,6 +241,8 @@ By default, this rule always allows the use of `this` in functions which name st
 Set `"capIsConstructor"` to `false` if you want those functions to be treated as 'regular' functions.
 
 Examples of **incorrect** code for this rule with `"capIsConstructor"` option set to `false`:
+
+::: incorrect
 
 ```js
 /*eslint no-invalid-this: ["error", { "capIsConstructor": false }]*/
@@ -258,7 +266,11 @@ Baz = function() {
 };
 ```
 
+:::
+
 Examples of **correct** code for this rule with `"capIsConstructor"` option set to `false`:
+
+::: correct
 
 ```js
 /*eslint no-invalid-this: ["error", { "capIsConstructor": false }]*/
@@ -270,6 +282,8 @@ obj.Foo = function Foo() {
     this.a = 0;
 };
 ```
+
+:::
 
 ## When Not To Use It
 

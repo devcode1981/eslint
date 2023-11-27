@@ -1,7 +1,6 @@
 ---
 title: Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/configuring/rules.md
 eleventyNavigation:
     key: configuring rules
     parent: configuring
@@ -9,9 +8,6 @@ eleventyNavigation:
     order: 3
 
 ---
-
-* [Configuring Rules](#configuring-rules)
-* [Disabling Rules](#disabling-rules)
 
 ## Configuring Rules
 
@@ -29,7 +25,7 @@ To configure rules inside of a file using configuration comments, use a comment 
 /* eslint eqeqeq: "off", curly: "error" */
 ```
 
-In this example, [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq) is turned off and [`curly`](https://eslint.org/docs/rules/curly) is turned on as an error. You can also use the numeric equivalent for the rule severity:
+In this example, [`eqeqeq`](../../rules/eqeqeq) is turned off and [`curly`](../../rules/curly) is turned on as an error. You can also use the numeric equivalent for the rule severity:
 
 ```js
 /* eslint eqeqeq: 0, curly: 2 */
@@ -43,7 +39,7 @@ If a rule has additional options, you can specify them using array literal synta
 /* eslint quotes: ["error", "double"], curly: 2 */
 ```
 
-This comment specifies the "double" option for the [`quotes`](https://eslint.org/docs/rules/quotes) rule. The first item in the array is always the rule severity (number or string).
+This comment specifies the "double" option for the [`quotes`](../../rules/quotes) rule. The first item in the array is always the rule severity (number or string).
 
 Configuration comments can include descriptions to explain why the comment is necessary. The description must occur after the configuration and is separated from the configuration by two or more consecutive `-` characters. For example:
 
@@ -221,10 +217,10 @@ alert('foo'); /* eslint-disable-line no-alert, quotes, semi */
 /* eslint-disable-next-line no-alert, quotes, semi */
 alert('foo');
 
-/* eslint-disable-next-line 
-  no-alert, 
-  quotes, 
-  semi 
+/* eslint-disable-next-line
+  no-alert,
+  quotes,
+  semi
 */
 alert('foo');
 ```
@@ -280,7 +276,7 @@ To disable all inline config comments, use the `noInlineConfig` setting. For exa
 }
 ```
 
-This setting is similar to [--no-inline-config](https://eslint.org/docs/user-guide/command-line-interface#--no-inline-config) CLI option.
+This setting is similar to [--no-inline-config](../command-line-interface#--no-inline-config) CLI option.
 
 #### Report unused `eslint-disable` comments
 
@@ -293,4 +289,4 @@ To report unused `eslint-disable` comments, use the `reportUnusedDisableDirectiv
 }
 ```
 
-This setting is similar to [--report-unused-disable-directives](https://eslint.org/docs/user-guide/command-line-interface#--report-unused-disable-directives) CLI option, but doesn't fail linting (reports as `"warn"` severity).
+This setting is similar to [--report-unused-disable-directives](../command-line-interface#--report-unused-disable-directives) CLI option, but doesn't fail linting (reports as `"warn"` severity).

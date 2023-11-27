@@ -1,11 +1,9 @@
 ---
 title: no-unmodified-loop-condition
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-unmodified-loop-condition.md
 rule_type: problem
 ---
 
-Disallows unmodified conditions of loops.
 
 Variables in a loop condition often are modified in the loop.
 If not, it's possibly a mistake.
@@ -35,6 +33,8 @@ If a reference is inside of a dynamic expression (e.g. `CallExpression`,
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-unmodified-loop-condition: "error"*/
 
@@ -54,7 +54,11 @@ while (node !== root) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-unmodified-loop-condition: "error"*/
@@ -91,6 +95,8 @@ while (check(obj)) {
     doSomething(obj);
 }
 ```
+
+:::
 
 ## When Not To Use It
 

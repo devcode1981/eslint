@@ -1,15 +1,12 @@
 ---
 title: nonblock-statement-body-position
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/nonblock-statement-body-position.md
 rule_type: layout
 further_reading:
 - https://jscs-dev.github.io/rule/requireNewlineBeforeSingleStatementsInIf
 ---
 
-<!--FIXABLE-->
 
-Enforces the location of single-line statements.
 
 When writing `if`, `else`, `while`, `do-while`, and `for` statements, the body can be a single statement instead of a block. It can be useful to enforce a consistent location for these single statements.
 
@@ -55,6 +52,8 @@ Additionally, the rule accepts an optional object option with an `"overrides"` k
 
 Examples of **incorrect** code for this rule with the default `"beside"` option:
 
+::: incorrect
+
 ```js
 /* eslint nonblock-statement-body-position: ["error", "beside"] */
 
@@ -75,7 +74,11 @@ while (foo)
 
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"beside"` option:
+
+::: correct
 
 ```js
 /* eslint nonblock-statement-body-position: ["error", "beside"] */
@@ -96,7 +99,11 @@ if (foo) { // block statements are always allowed with this rule
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"below"` option:
+
+::: incorrect
 
 ```js
 /* eslint nonblock-statement-body-position: ["error", "below"] */
@@ -111,7 +118,11 @@ for (let i = 1; i < foo; i++) bar();
 do bar(); while (foo)
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"below"` option:
+
+::: correct
 
 ```js
 /* eslint nonblock-statement-body-position: ["error", "below"] */
@@ -138,7 +149,11 @@ if (foo) {
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"beside", { "overrides": { "while": "below" } }` rule:
+
+::: incorrect
 
 ```js
 /* eslint nonblock-statement-body-position: ["error", "beside", { "overrides": { "while": "below" } }] */
@@ -149,7 +164,11 @@ if (foo)
 while (foo) bar();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"beside", { "overrides": { "while": "below" } }` rule:
+
+::: correct
 
 ```js
 /* eslint nonblock-statement-body-position: ["error", "beside", { "overrides": { "while": "below" } }] */
@@ -159,6 +178,8 @@ if (foo) bar();
 while (foo)
   bar();
 ```
+
+:::
 
 ## When Not To Use It
 

@@ -1,13 +1,10 @@
 ---
 title: no-else-return
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-else-return.md
 rule_type: suggestion
 ---
 
-<!--FIXABLE-->
 
-Disallows `return` before `else`.
 
 If an `if` block contains a `return` statement, the `else` block becomes unnecessary. Its contents can be placed outside of the block.
 
@@ -35,6 +32,8 @@ This rule has an object option:
 ### `allowElseIf: true`
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-else-return: "error"*/
@@ -91,7 +90,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-else-return: "error"*/
@@ -133,9 +136,13 @@ function foo() {
 }
 ```
 
+:::
+
 ### `allowElseIf: false`
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-else-return: ["error", {allowElseIf: false}]*/
@@ -149,7 +156,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-else-return: ["error", {allowElseIf: false}]*/
@@ -164,3 +175,5 @@ function foo() {
     }
 }
 ```
+
+:::

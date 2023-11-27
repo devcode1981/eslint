@@ -1,14 +1,12 @@
 ---
 title: class-methods-use-this
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/class-methods-use-this.md
 rule_type: suggestion
 further_reading:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static
 ---
 
-Enforces that class methods utilize `this`.
 
 If a class method does not use `this`, it can *sometimes* be made into a static function. If you do convert the method into a static function, instances of the class that call that particular method have to be converted to a static call as well (`MyClass.callStaticMethod()`)
 
@@ -61,6 +59,8 @@ This rule is aimed to flag class methods that do not use `this`.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint class-methods-use-this: "error"*/
 /*eslint-env es6*/
@@ -72,7 +72,11 @@ class A {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint class-methods-use-this: "error"*/
@@ -100,6 +104,8 @@ class A {
 }
 ```
 
+:::
+
 ## Options
 
 This rule has two options:
@@ -117,6 +123,8 @@ The `exceptMethods` option allows you to pass an array of method names for which
 
 Examples of **incorrect** code for this rule when used without exceptMethods:
 
+::: incorrect
+
 ```js
 /*eslint class-methods-use-this: "error"*/
 
@@ -126,7 +134,11 @@ class A {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule when used with exceptMethods:
+
+::: correct
 
 ```js
 /*eslint class-methods-use-this: ["error", { "exceptMethods": ["foo", "#bar"] }] */
@@ -139,6 +151,8 @@ class A {
 }
 ```
 
+:::
+
 ### enforceForClassFields
 
 ```js
@@ -149,6 +163,8 @@ The `enforceForClassFields` option enforces that arrow functions and function ex
 
 Examples of **incorrect** code for this rule with the `{ "enforceForClassFields": true }` option (default):
 
+::: incorrect
+
 ```js
 /*eslint class-methods-use-this: ["error", { "enforceForClassFields": true }] */
 
@@ -157,7 +173,11 @@ class A {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "enforceForClassFields": true }` option (default):
+
+::: correct
 
 ```js
 /*eslint class-methods-use-this: ["error", { "enforceForClassFields": true }] */
@@ -167,7 +187,11 @@ class A {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "enforceForClassFields": false }` option:
+
+::: correct
 
 ```js
 /*eslint class-methods-use-this: ["error", { "enforceForClassFields": false }] */
@@ -176,3 +200,5 @@ class A {
     foo = () => {}
 }
 ```
+
+:::

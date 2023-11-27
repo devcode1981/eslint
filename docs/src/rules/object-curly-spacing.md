@@ -1,7 +1,6 @@
 ---
 title: object-curly-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/object-curly-spacing.md
 rule_type: layout
 related_rules:
 - array-bracket-spacing
@@ -10,9 +9,7 @@ related_rules:
 - space-in-parens
 ---
 
-<!--FIXABLE-->
 
-Enforces consistent spacing inside braces.
 
 While formatting preferences are very personal, a number of style guides require
 or disallow spaces between curly braces in the following situations:
@@ -56,6 +53,8 @@ Object option:
 
 Examples of **incorrect** code for this rule with the default `"never"` option:
 
+::: incorrect
+
 ```js
 /*eslint object-curly-spacing: ["error", "never"]*/
 
@@ -67,7 +66,11 @@ var {x } = y;
 import { foo } from 'bar';
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"never"` option:
+
+::: correct
 
 ```js
 /*eslint object-curly-spacing: ["error", "never"]*/
@@ -86,9 +89,13 @@ var {x} = y;
 import {foo} from 'bar';
 ```
 
+:::
+
 ### always
 
 Examples of **incorrect** code for this rule with the `"always"` option:
+
+::: incorrect
 
 ```js
 /*eslint object-curly-spacing: ["error", "always"]*/
@@ -105,7 +112,11 @@ var {x} = y;
 import {foo } from 'bar';
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always"` option:
+
+::: correct
 
 ```js
 /*eslint object-curly-spacing: ["error", "always"]*/
@@ -120,9 +131,13 @@ var { x } = y;
 import { foo } from 'bar';
 ```
 
+:::
+
 #### arraysInObjects
 
 Examples of additional **correct** code for this rule with the `"never", { "arraysInObjects": true }` options:
+
+::: correct
 
 ```js
 /*eslint object-curly-spacing: ["error", "never", { "arraysInObjects": true }]*/
@@ -131,7 +146,11 @@ var obj = {"foo": [ 1, 2 ] };
 var obj = {"foo": [ "baz", "bar" ] };
 ```
 
+:::
+
 Examples of additional **correct** code for this rule with the `"always", { "arraysInObjects": false }` options:
+
+::: correct
 
 ```js
 /*eslint object-curly-spacing: ["error", "always", { "arraysInObjects": false }]*/
@@ -140,9 +159,13 @@ var obj = { "foo": [ 1, 2 ]};
 var obj = { "foo": [ "baz", "bar" ]};
 ```
 
+:::
+
 #### objectsInObjects
 
 Examples of additional **correct** code for this rule with the `"never", { "objectsInObjects": true }` options:
+
+::: correct
 
 ```js
 /*eslint object-curly-spacing: ["error", "never", { "objectsInObjects": true }]*/
@@ -150,13 +173,19 @@ Examples of additional **correct** code for this rule with the `"never", { "obje
 var obj = {"foo": {"baz": 1, "bar": 2} };
 ```
 
+:::
+
 Examples of additional **correct** code for this rule with the `"always", { "objectsInObjects": false }` options:
+
+::: correct
 
 ```js
 /*eslint object-curly-spacing: ["error", "always", { "objectsInObjects": false }]*/
 
 var obj = { "foo": { "baz": 1, "bar": 2 }};
 ```
+
+:::
 
 ## When Not To Use It
 

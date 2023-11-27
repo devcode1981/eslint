@@ -1,7 +1,6 @@
 ---
 title: no-global-assign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-global-assign.md
 rule_type: suggestion
 related_rules:
 - no-extend-native
@@ -9,9 +8,7 @@ related_rules:
 - no-shadow
 ---
 
-<!--RECOMMENDED-->
 
-Disallows assignment to native objects or read-only global variables.
 
 JavaScript environments contain a number of built-in global variables, such as `window` in browsers and `process` in Node.js. In almost all cases, you don't want to assign a value to these global variables as doing so could result in losing access to important functionality. For example, you probably don't want to do this in browser code:
 
@@ -32,12 +29,18 @@ ESLint has the capability to configure global variables as read-only.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-global-assign: "error"*/
 
 Object = null
 undefined = 1
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint no-global-assign: "error"*/
@@ -48,6 +51,10 @@ length = 1
 top = 1
 ```
 
+:::
+
+::: incorrect
+
 ```js
 /*eslint no-global-assign: "error"*/
 /*global a:readonly*/
@@ -55,7 +62,11 @@ top = 1
 a = 1
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-global-assign: "error"*/
@@ -65,6 +76,10 @@ var b = 1
 b = 2
 ```
 
+:::
+
+::: correct
+
 ```js
 /*eslint no-global-assign: "error"*/
 /*eslint-env browser*/
@@ -72,12 +87,18 @@ b = 2
 onload = function() {}
 ```
 
+:::
+
+::: correct
+
 ```js
 /*eslint no-global-assign: "error"*/
 /*global a:writable*/
 
 a = 1
 ```
+
+:::
 
 ## Options
 

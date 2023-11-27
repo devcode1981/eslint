@@ -1,11 +1,9 @@
 ---
 title: no-caller
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-caller.md
 rule_type: suggestion
 ---
 
-Disallows use of `caller`/`callee`.
 
 The use of `arguments.caller` and `arguments.callee` make several code optimizations impossible. They have been deprecated in future versions of JavaScript and their use is forbidden in ECMAScript 5 while in strict mode.
 
@@ -20,6 +18,8 @@ function foo() {
 This rule is aimed at discouraging the use of deprecated and sub-optimal code by disallowing the use of `arguments.caller` and `arguments.callee`. As such, it will warn when `arguments.caller` and `arguments.callee` are used.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-caller: "error"*/
@@ -37,7 +37,11 @@ function foo(n) {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-caller: "error"*/
@@ -54,3 +58,5 @@ function foo(n) {
     return !(n > 1) ? 1 : factorial(n - 1) * n;
 });
 ```
+
+:::

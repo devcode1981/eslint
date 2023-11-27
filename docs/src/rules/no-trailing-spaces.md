@@ -1,13 +1,10 @@
 ---
 title: no-trailing-spaces
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-trailing-spaces.md
 rule_type: layout
 ---
 
-<!--FIXABLE-->
 
-Disallows trailing whitespace at the end of lines.
 
 Sometimes in the course of editing files, you can end up with extra whitespace at the end of lines. These whitespace differences can be picked up by source control systems and flagged as diffs, causing frustration for developers. While this extra whitespace causes no functional issues, many code conventions require that trailing spaces be removed before check-in.
 
@@ -17,6 +14,8 @@ This rule disallows trailing whitespace (spaces, tabs, and other Unicode whitesp
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-trailing-spaces: "error"*/
 
@@ -25,7 +24,11 @@ var baz = 5;//••
 //•••••
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-trailing-spaces: "error"*/
@@ -33,6 +36,8 @@ Examples of **correct** code for this rule:
 var foo = 0;
 var baz = 5;
 ```
+
+:::
 
 ## Options
 
@@ -47,6 +52,8 @@ This rule has an object option:
 
 Examples of **correct** code for this rule with the `{ "skipBlankLines": true }` option:
 
+::: correct
+
 ```js
 /*eslint no-trailing-spaces: ["error", { "skipBlankLines": true }]*/
 
@@ -55,9 +62,13 @@ var baz = 5;
 //•••••
 ```
 
+:::
+
 ### ignoreComments
 
 Examples of **correct** code for this rule with the `{ "ignoreComments": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-trailing-spaces: ["error", { "ignoreComments": true }]*/
@@ -70,3 +81,5 @@ Examples of **correct** code for this rule with the `{ "ignoreComments": true }`
  *•bar
  */
 ```
+
+:::

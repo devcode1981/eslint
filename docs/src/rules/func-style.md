@@ -1,13 +1,11 @@
 ---
 title: func-style
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/func-style.md
 rule_type: suggestion
 further_reading:
 - https://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html
 ---
 
-Enforces the consistent use of either `function` declarations or expressions.
 
 There are two ways of defining functions in JavaScript: `function` declarations and `function` expressions. Declarations contain the `function` keyword first, followed by a name and then its arguments and the function body, for example:
 
@@ -70,6 +68,8 @@ This rule has an object option for an exception:
 
 Examples of **incorrect** code for this rule with the default `"expression"` option:
 
+::: incorrect
+
 ```js
 /*eslint func-style: ["error", "expression"]*/
 
@@ -78,7 +78,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"expression"` option:
+
+::: correct
 
 ```js
 /*eslint func-style: ["error", "expression"]*/
@@ -92,9 +96,13 @@ var foo = () => {};
 // allowed as allowArrowFunctions : false is applied only for declaration
 ```
 
+:::
+
 ### declaration
 
 Examples of **incorrect** code for this rule with the `"declaration"` option:
+
+::: incorrect
 
 ```js
 /*eslint func-style: ["error", "declaration"]*/
@@ -106,7 +114,11 @@ var foo = function() {
 var foo = () => {};
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"declaration"` option:
+
+::: correct
 
 ```js
 /*eslint func-style: ["error", "declaration"]*/
@@ -121,15 +133,21 @@ SomeObject.foo = function() {
 };
 ```
 
+:::
+
 ### allowArrowFunctions
 
 Examples of additional **correct** code for this rule with the `"declaration", { "allowArrowFunctions": true }` options:
+
+::: correct
 
 ```js
 /*eslint func-style: ["error", "declaration", { "allowArrowFunctions": true }]*/
 
 var foo = () => {};
 ```
+
+:::
 
 ## When Not To Use It
 

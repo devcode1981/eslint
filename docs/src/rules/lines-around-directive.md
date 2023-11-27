@@ -1,16 +1,13 @@
 ---
 title: lines-around-directive
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/lines-around-directive.md
 rule_type: layout
 related_rules:
 - lines-around-comment
 - padded-blocks
 ---
 
-<!--FIXABLE-->
 
-Requires or disallow newlines around directives.
 
 This rule was **deprecated** in ESLint v4.0.0 and replaced by the [padding-line-between-statements](padding-line-between-statements) rule.
 
@@ -64,6 +61,8 @@ This is the default option.
 
 Examples of **incorrect** code for this rule with the `"always"` option:
 
+::: incorrect
+
 ```js
 /* eslint lines-around-directive: ["error", "always"] */
 
@@ -89,9 +88,13 @@ function foo() {
   var bar;
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `"always"` option:
 
+::: correct
+
 ```js
 /* eslint lines-around-directive: ["error", "always"] */
 
@@ -123,11 +126,15 @@ function foo() {
   var bar;
 }
 ```
+
+:::
 
 ### never
 
 Examples of **incorrect** code for this rule with the `"never"` option:
 
+::: incorrect
+
 ```js
 /* eslint lines-around-directive: ["error", "never"] */
 
@@ -160,9 +167,13 @@ function foo() {
   var bar;
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `"never"` option:
 
+::: correct
+
 ```js
 /* eslint lines-around-directive: ["error", "never"] */
 
@@ -188,11 +199,15 @@ function foo() {
   var bar;
 }
 ```
+
+:::
 
 ### before & after
 
 Examples of **incorrect** code for this rule with the `{ "before": "never", "after": "always" }` option:
 
+::: incorrect
+
 ```js
 /* eslint lines-around-directive: ["error", { "before": "never", "after": "always" }] */
 
@@ -221,9 +236,13 @@ function foo() {
   var bar;
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `{ "before": "never", "after": "always" }`  option:
 
+::: correct
+
 ```js
 /* eslint lines-around-directive: ["error", { "before": "never", "after": "always" }] */
 
@@ -254,7 +273,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `{ "before": "always", "after": "never" }` option:
+
+::: incorrect
 
 ```js
 /* eslint lines-around-directive: ["error", { "before": "always", "after": "never" }] */
@@ -285,9 +308,13 @@ function foo() {
   var bar;
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `{ "before": "always", "after": "never" }` option:
 
+::: correct
+
 ```js
 /* eslint lines-around-directive: ["error", { "before": "always", "after": "never" }] */
 
@@ -315,6 +342,8 @@ function foo() {
   var bar;
 }
 ```
+
+:::
 
 ## When Not To Use It
 

@@ -1,11 +1,9 @@
 ---
 title: no-lone-blocks
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-lone-blocks.md
 rule_type: suggestion
 ---
 
-Disallows unnecessary nested blocks.
 
 In JavaScript, prior to ES6, standalone code blocks delimited by curly braces do not create a new scope and have no use. For example, these curly braces do nothing to `foo`:
 
@@ -22,6 +20,8 @@ In ES6, code blocks may create a new scope if a block-level binding (`let` and `
 This rule aims to eliminate unnecessary and potentially confusing blocks at the top level of a script or within other blocks.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-lone-blocks: "error"*/
@@ -59,7 +59,11 @@ class C {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with ES6 environment:
+
+::: correct
 
 ```js
 /*eslint no-lone-blocks: "error"*/
@@ -107,7 +111,11 @@ class C {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with ES6 environment and strict mode via `"parserOptions": { "sourceType": "module" }` in the ESLint configuration or `"use strict"` directive in the code:
+
+::: correct
 
 ```js
 /*eslint no-lone-blocks: "error"*/
@@ -119,3 +127,5 @@ Examples of **correct** code for this rule with ES6 environment and strict mode 
     function foo() {}
 }
 ```
+
+:::

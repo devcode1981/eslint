@@ -1,13 +1,11 @@
 ---
 title: no-empty-function
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-empty-function.md
 rule_type: suggestion
 related_rules:
 - no-empty
 ---
 
-Disallows empty functions.
 
 Empty functions can reduce readability because readers need to guess whether it's intentional or not.
 So writing a clear comment for empty functions is a good practice.
@@ -32,6 +30,8 @@ This rule is aimed at eliminating empty functions.
 A function will not be considered a problem if it contains a comment.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-empty-function: "error"*/
@@ -82,7 +82,11 @@ class A {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: "error"*/
@@ -173,6 +177,8 @@ class A {
 }
 ```
 
+:::
+
 ## Options
 
 This rule has an option to allow specific kinds of functions to be empty.
@@ -193,6 +199,8 @@ This rule has an option to allow specific kinds of functions to be empty.
 
 Examples of **correct** code for the `{ "allow": ["functions"] }` option:
 
+::: correct
+
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["functions"] }]*/
 
@@ -205,9 +213,13 @@ var obj = {
 };
 ```
 
+:::
+
 ### allow: arrowFunctions
 
 Examples of **correct** code for the `{ "allow": ["arrowFunctions"] }` option:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["arrowFunctions"] }]*/
@@ -216,9 +228,13 @@ Examples of **correct** code for the `{ "allow": ["arrowFunctions"] }` option:
 var foo = () => {};
 ```
 
+:::
+
 ### allow: generatorFunctions
 
 Examples of **correct** code for the `{ "allow": ["generatorFunctions"] }` option:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["generatorFunctions"] }]*/
@@ -233,9 +249,13 @@ var obj = {
 };
 ```
 
+:::
+
 ### allow: methods
 
 Examples of **correct** code for the `{ "allow": ["methods"] }` option:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["methods"] }]*/
@@ -251,9 +271,13 @@ class A {
 }
 ```
 
+:::
+
 ### allow: generatorMethods
 
 Examples of **correct** code for the `{ "allow": ["generatorMethods"] }` option:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["generatorMethods"] }]*/
@@ -269,9 +293,13 @@ class A {
 }
 ```
 
+:::
+
 ### allow: getters
 
 Examples of **correct** code for the `{ "allow": ["getters"] }` option:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["getters"] }]*/
@@ -287,9 +315,13 @@ class A {
 }
 ```
 
+:::
+
 ### allow: setters
 
 Examples of **correct** code for the `{ "allow": ["setters"] }` option:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["setters"] }]*/
@@ -305,9 +337,13 @@ class A {
 }
 ```
 
+:::
+
 ### allow: constructors
 
 Examples of **correct** code for the `{ "allow": ["constructors"] }` option:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["constructors"] }]*/
@@ -318,9 +354,13 @@ class A {
 }
 ```
 
+:::
+
 ### allow: asyncFunctions
 
 Examples of **correct** code for the `{ "allow": ["asyncFunctions"] }` options:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["asyncFunctions"] }]*/
@@ -329,9 +369,13 @@ Examples of **correct** code for the `{ "allow": ["asyncFunctions"] }` options:
 async function a(){}
 ```
 
+:::
+
 ### allow: asyncMethods
 
 Examples of **correct** code for the `{ "allow": ["asyncMethods"] }` options:
+
+::: correct
 
 ```js
 /*eslint no-empty-function: ["error", { "allow": ["asyncMethods"] }]*/
@@ -346,6 +390,8 @@ class A {
     static async foo() {}
 }
 ```
+
+:::
 
 ## When Not To Use It
 
